@@ -1,6 +1,5 @@
 .feed-container{
     border-style: solid;
-    border-color: #9DA015;
     margin-top: 30px;
     border-width: 2px;
     border-radius: 20px;
@@ -8,6 +7,13 @@
     padding: 10px;
     height: 100%;
     overflow-y: scroll;
+}
+.blue{
+    border-color: #1564a0;
+    box-shadow: 0 0 20px 0px #1525a09e;
+}
+.yellow{
+    border-color: #9DA015;
     box-shadow: 0 0 20px 0px #9da01557;
 }
 
@@ -17,4 +23,8 @@
 
 .feed-banner{
     width: 50%;
+}
+
+.loading{
+    width: 100%;
 }
