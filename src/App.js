@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import FirestoreLogo from './images/firestore-logo.png';
+import CloudSQLLogo from './images/cloud-sql-logo.png';
 import './App.css';
+import Feed from './feed/Feed.jsx';
+import { useState } from 'react';
 
 function App() {
+  const [CloudSQL, setCloudSQL] = useState(true);
+
+  const handleToggle = () => { 
+    setCloudSQL(!CloudSQL); 
+  }; 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='device-area'>
+        <div className='platform-toggle-container'>
+          <img src={CloudSQLLogo}/>
+          <label className="switch">
+            <input type="checkbox" onChange={handleToggle}/>
+            <span className="slider round"></span>
+          </label>
+          <img src={FirestoreLogo}/>
+        </div>
+        
+      <Feed CloudSQL={CloudSQL} />
+      </div>
     </div>
   );
 }

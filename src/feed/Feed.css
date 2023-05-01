@@ -1,0 +1,20 @@
+.feed-container{
+    border-style: solid;
+    border-color: #9DA015;
+    margin-top: 30px;
+    border-width: 2px;
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+    overflow-y: scroll;
+    box-shadow: 0 0 20px 0px #9da01557;
+}
+
+.feed-container::-webkit-scrollbar {
+    display: none;
+}
+
+.feed-banner{
+    width: 50%;
+}
