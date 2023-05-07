@@ -8,10 +8,12 @@ body{
 .App{
   height: 100vh;
   display: flex;
+  width: 100vw;
 }
 
 .device-area{
-  width: 300px;
+  width: 400px;
+  min-width: 400px;
   background-color: #222222;
   padding: 50px 50px 20px 50px;
   display: flex;
