@@ -1,0 +1,122 @@
+.stats-area{
+    background: black;
+    color: white;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.statbox{
+    border: rgb(211, 211, 211) solid 2px;
+    padding: 0px 10px;
+}
+
+.title{
+    font-size: 35px;
+}
+
+.subtitle{
+    color: grey;
+}
+
+.apiTimes{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding-bottom: 25px;
+}
+
+.apiTimesContainer{
+    display: flex;
+    font-size: 50px;
+    line-height: 0;
+    align-items: center;
+}
+
+.apiTimeLogo{
+    width: 50px;
+    padding-right: 15px;
+}
+
+.blink_blue {
+    animation: blinkblue 1s linear;
+}
+@keyframes blinkblue {  
+    10% {
+        color:#3C7AE0;
+        opacity: 50%;
+    }
+    30% {
+        opacity: 10%;
+    }70% {
+        opacity: 70%;
+    }
+    100% {
+        color:white;
+        opacity: 100%;
+    }
+}
+.blink_yellow {
+    animation: blinkyellow 1s linear;
+}
+@keyframes blinkyellow {  
+    10% {
+        color:#E3BA1D;
+        opacity: 50%;
+    }
+    30% {
+        opacity: 10%;
+    }70% {
+        opacity: 70%;
+    }
+    100% {
+        color:white;
+        opacity: 100%;
+    }
+}
+
+.jsonContainer{
+    height: 100%;
+    overflow: scroll;
+}
+
+.jsonContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.currentJson{
+    word-break: break-all;
+    white-space: normal;
+}
+
+
+
+
+
+
+:root {
+    --dark-grey: #454545;
+    --light-grey: #7f7f7f
+}
+
+pre {
+    font-family: inherit;
+    color: var(--dark-grey);
+  }
+  .string {
+    color: var(--light-grey);
+  }
+  .number {
+    color: var(--light-grey);
+  }
+  .boolean {
+    color: var(--light-grey);
+  }
+  .null {
+    color: var(--dark-grey);
+  }
+  .key {
+    color: var(--dark-grey);
+  }
