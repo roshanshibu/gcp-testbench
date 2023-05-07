@@ -17,6 +17,12 @@
     border-radius: 10px;
 }
 
+.like-caption-row{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
 .caption{
     font-weight: 600;
     font-size: 20px;
