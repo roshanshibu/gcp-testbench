@@ -8,11 +8,15 @@
 
 .statbox{
     border: rgb(211, 211, 211) solid 2px;
-    padding: 0px 10px;
+    padding: 0px 15px;
+}
+
+.statbox p {
+    font-size: 18px;
 }
 
 .title{
-    font-size: 35px;
+    font-size: 35px !important;
 }
 
 .subtitle{
@@ -30,9 +34,12 @@
 
 .apiTimesContainer{
     display: flex;
-    font-size: 50px;
     line-height: 0;
     align-items: center;
+}
+
+.apiTime{
+    font-size: 50px !important;
 }
 
 .apiTimeLogo{
@@ -92,6 +99,62 @@
 }
 
 
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.toggle-stat-container{
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.stat-switch {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+}
+
+.stat-switch input { 
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.stat-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3d3d3d;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.stat-slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 6px;
+    bottom: 5.5px;
+    background-color: #6b6b6b;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .stat-slider {
+    background-color: #d7d7d7;
+}
+
+input:checked + .stat-slider:before {
+    -webkit-transform: translateX(70px);
+    -ms-transform: translateX(70px);
+    transform: translateX(70px);
+    background-color: #3d3d3d;
+}
 
 
 

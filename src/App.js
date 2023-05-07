@@ -13,6 +13,11 @@ export const FirestoreCountContext = React.createContext()
 
 export const JSONContext = React.createContext()
 
+export const SamePageContext = React.createContext()
+
+export const AverageTimeContext = React.createContext()
+
+
 
 function App() {
   const [CloudSQL, setCloudSQL] = useState(true);
@@ -21,7 +26,9 @@ function App() {
   const [CloudSQLCount, setCloudSQLCount] = useState(0);
   const [FirestoreCount, setFirestoreCount] = useState(0);
 
-  const [currentJSON, setCurrentJSON] = useState({})
+  const [currentJSON, setCurrentJSON] = useState({});
+  const [useSamePage, setUseSamePage] = useState(false);
+  const [useAverageTime, setUseAverageTime] = useState(true);
 
   const handleToggle = () => { 
     setCloudSQL(!CloudSQL); 
@@ -34,22 +41,27 @@ function App() {
           <CloudSQLCountContext.Provider value={{CloudSQLCount, setCloudSQLCount}}>
             <FirestoreCountContext.Provider value={{FirestoreCount, setFirestoreCount}}>
               <JSONContext.Provider value={{currentJSON, setCurrentJSON}}>
+                <SamePageContext.Provider value={{useSamePage, setUseSamePage}}>
+                  <AverageTimeContext.Provider value={{useAverageTime, setUseAverageTime}}>
 
-                <div className='device-area'>
-                  <div className='platform-toggle-container'>
-                    <img src={CloudSQLLogo}/>
-                    <label className="switch">
-                      <input type="checkbox" onChange={handleToggle}/>
-                      <span className="slider round"></span>
-                    </label>
-                    <img src={FirestoreLogo}/>
-                  </div>
-                  
-                  <Feed CloudSQL={CloudSQL}/>
-                
-                </div>
-                <Stats CloudSQL={CloudSQL}/>
+                    <div className='device-area'>
+                      <div className='platform-toggle-container'>
+                        <img src={CloudSQLLogo}/>
+                        <label className="switch">
+                          <input type="checkbox" onChange={handleToggle}/>
+                          <span className="slider round"></span>
+                        </label>
+                        <img src={FirestoreLogo}/>
+                      </div>
+                      
+                      <Feed CloudSQL={CloudSQL}/>
+                      <p className='mark'>Made in Leimen</p>
+                    
+                    </div>
+                    <Stats CloudSQL={CloudSQL}/>
 
+                  </AverageTimeContext.Provider>
+                </SamePageContext.Provider>
               </JSONContext.Provider>
             </FirestoreCountContext.Provider>
           </CloudSQLCountContext.Provider>

@@ -1,5 +1,5 @@
 import './Stats.css';
-import { CloudSQLPerfContext, FirestorePerfContext, JSONContext } from '../App';
+import { CloudSQLPerfContext, FirestorePerfContext, JSONContext, SamePageContext, AverageTimeContext } from '../App';
 import FirestoreLogo from '../images/firestore-logo.png';
 import CloudSQLLogo from '../images/cloud-sql-logo.png';
 import { useContext } from 'react';
@@ -29,35 +29,57 @@ const syntaxHighlight = (json) => {
         return '<span class="' + cls + '">' + match + "</span>";
       }
     );
-  }
+  } 
 
 const Stats = (props) => {
     const cloudSQLPerfContext = useContext(CloudSQLPerfContext);
     const firestorePerfContext = useContext(FirestorePerfContext);
     const jsonContext = useContext(JSONContext);
-
+    const samePageContext = useContext(SamePageContext);
+    const averageTimeContext = useContext(AverageTimeContext);
     return(
         <div className='stats-area'>
-            <div className='statbox title'>
-                <p>ACS Testbench <span className='subtitle'>by Group B</span></p>
+            <div className='statbox'>
+                <p className='title'>ACS Testbench <span className='subtitle'>by Group B</span></p>
             </div>
             <div className='statbox'>
-                <p>API Response Times (Average)</p>
+                <p>API Response Times ({averageTimeContext.useAverageTime ? 'Average' : 'Instantaneous'})</p>
                 <div className='apiTimes'>
                     <div className='apiTimesContainer'>
                         <img className='apiTimeLogo' src={CloudSQLLogo} />
-                        <p className={props.CloudSQL ? 'blink_blue' : ''}>
-                            {cloudSQLPerfContext.CloudSQLPerf.toFixed(10)}
+                        <p className={'apiTime ' + (props.CloudSQL ? 'blink_blue' : '')}>
+                            {cloudSQLPerfContext.CloudSQLPerf.toFixed(10)} ms
                         </p>
                     </div>
                     <div className='apiTimesContainer'>
                         <img className='apiTimeLogo' src={FirestoreLogo} />
-                        <p className={props.CloudSQL ? '' : 'blink_yellow'}>
-                            {firestorePerfContext.FirestorePerf.toFixed(10)}
+                        <p className={'apiTime ' +  (props.CloudSQL ? '' : 'blink_yellow')}>
+                            {firestorePerfContext.FirestorePerf.toFixed(10)} ms
                         </p>
                     </div>
                 </div>
             </div>
+
+
+            <div className='flex-row'>
+              <div className='statbox toggle-stat-container'>
+                <p>Load identical pages</p>
+                <label className="stat-switch">
+                  <input type="checkbox" onChange={() => samePageContext.setUseSamePage(!samePageContext.useSamePage)}/>
+                  <span className="stat-slider round"></span>
+                </label>
+              </div>
+              
+              <div className='statbox toggle-stat-container'>
+                <p>Show instantaneous response times</p>
+                <label className="stat-switch">
+                  <input type="checkbox" onChange={() => averageTimeContext.setUseAverageTime(!averageTimeContext.useAverageTime)}/>
+                  <span className="stat-slider round"></span>
+                </label>
+              </div>
+            </div>
+
+
             <div className='statbox jsonContainer'>
                 <p>JSON Response (Length: {JSON.stringify(jsonContext.currentJSON).length})</p>
                 {/* <p className='currentJson'>{JSON.stringify(jsonContext.currentJSON)}</p> */}

@@ -12,10 +12,10 @@ body{
 }
 
 .device-area{
-  width: 400px;
-  min-width: 400px;
+  width: 350px;
+  min-width: 350px;
   background-color: #222222;
-  padding: 50px 50px 20px 50px;
+  padding: 50px 50px 5px 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,4 +81,11 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+
+.mark{
+  line-height: 0;
+  font-size: 10px;
+  color: #575757;
 }
